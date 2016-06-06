@@ -11,6 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HelloMvcController {
     @RequestMapping("/mvc")
     public String helloMvc(){
-        return "home";
+        return  "home";
     }
 }
