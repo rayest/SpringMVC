@@ -12,15 +12,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping("/hello")
 public class HelloMVCController {
-    @RequestMapping("/mvc")
-    public String helloMVC(){
-        return  "home";
-    }
+    // @RequestMapping("/mvc")
+    // public String helloMVC(){
+    // return  "home";
+    // }
     @RequestMapping("/rest")
     @ResponseBody
     public JSONObject helloRest(){
         JSONObject jsonObject=new JSONObject();
-        jsonObject.put("name","bogehu");
+        jsonObject.put("sex","男");
+        jsonObject.put("name","胡从政");
+        jsonObject.put("phonenumber","152*****0411");
         return jsonObject;
     }
 

@@ -19,10 +19,10 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
     <!--spitter-servlet声明匹配模式,用以拦截所有的请求-->
-    <servlet-maping>
+    <servlet-mapping>
         <servlet-name>spitter</servlet-name>
         <url-pattern>/</url-pattern>
-    </servlet-maping>
+    </servlet-mapping>
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
