@@ -4,6 +4,6 @@
 <head>
 </head>
 <body>
-Hello Spring MVC,hello world
+Hello Spring MVC!
 </body>
 </html>
