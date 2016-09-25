@@ -1,12 +1,11 @@
 package cn.rayest.controller;
 
 import cn.rayest.model.Book;
+import cn.rayest.model.Picture;
 import cn.rayest.model.User;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.WebDataBinder;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Rayest on 2016/9/25 0025.
@@ -65,4 +64,24 @@ public class TestController {
     public String getUser(User user){
         return user.toString();
     }
+
+    // 同属性的多对象的数据绑定
+    // TODO: http://localhost:8080/bookAndPic?book.name=sanpao&book.author=lee&picture.name=shanshui&picture.author=ray
+    @RequestMapping(value = "/bookAndPic", method = RequestMethod.POST)
+    @ResponseBody
+    public String getUserAndAdmin(Book book, Picture picture){
+        return book.toString() + ", " + picture.toString();
+    }
+
+    @InitBinder("book")
+    public void initBook(WebDataBinder binder){
+        binder.setFieldDefaultPrefix("book.");
+    }
+
+    @InitBinder("picture")
+    public void initPicture(WebDataBinder binder){
+        binder.setFieldDefaultPrefix("picture.");
+    }
+
+    
 }
