@@ -14,21 +14,28 @@ import static org.junit.Assert.assertNotNull;
 public class QRCodeTest {
 
     @Test
-    public void testCreateQRCode() throws Exception {
+    public void testCreateQRCodeByZxing() throws Exception {
         QRCode qrCode = new QRCode();
-        qrCode.createQRCode();
+        qrCode.createQRCodeByZxing();
         assertNotNull(qrCode);
     }
 
     @Test
-    public void testReadQRCode() throws Exception {
+    public void testReadQRCodeByZxing() throws Exception {
         QRCode qrCode = new QRCode();
-        Result result = qrCode.readQRCode();
+        Result result = qrCode.readQRCodeByZxing();
         String resultString = result.toString();
         BarcodeFormat barcodeFormat = result.getBarcodeFormat();
         String content = result.getText();
         assertEquals("https://github.com/rayest", resultString);
         assertEquals(BarcodeFormat.QR_CODE, barcodeFormat);
         assertEquals("https://github.com/rayest", content);
+    }
+
+    @Test
+    public void testCreateQRCodeByQR() throws Exception {
+        QRCode qrCode = new QRCode();
+        qrCode.createQRCodeByQR();
+        assertNotNull(qrCode);
     }
 }
