@@ -29,4 +29,14 @@ public class AnnotationController {
         }
         return "Error";
     }
+
+    @RequestMapping(value = "/path/{name}",method = {RequestMethod.GET, RequestMethod.POST})
+    @ResponseStatus(value = HttpStatus.OK)
+    public String getResponseBody(@PathVariable("name") String name){
+        if (name.equals("lee")){
+            return "lee";
+        }
+        return "Not Lee";
+    }
+
 }
