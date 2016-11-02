@@ -3,6 +3,7 @@ package cn.rayest.annotation;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.view.RedirectView;
 
 /**
  * Created by Rayest on 2016/10/31 0031.
@@ -40,10 +41,25 @@ public class AnnotationController {
         return "Not Lee";
     }
 
-    @RequestMapping(value = "/redirect", method = RequestMethod.GET)
+    @RequestMapping(value = "/model/redirect", method = RequestMethod.GET)
     @ResponseStatus(value = HttpStatus.OK)
-    public ModelAndView redirect() {
-//        return new ModelAndView("redirect:http://a.app.qq.com/o/simple.jsp?pkgname=com.ucardstore.Activity");
-        return new ModelAndView("redirect:https://www.baidu.com/");
+    public ModelAndView redirectToModel() {
+        // return new ModelAndView("redirect:https://www.baidu.com/");
+        return new ModelAndView("redirect:http://a.app.qq.com/o/simple.jsp?pkgname=com.ucardstore.Activity");
+    }
+
+    @RequestMapping(value = "/string/redirect", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public String redirectToString() {
+        // 返回字符串内容，而非访问 url 的页面
+        //   return "redirect:https://www.baidu.com";
+        return "redirect:http://a.app.qq.com/o/simple.jsp?pkgname=com.ucardstore.Activity";
+    }
+
+    @RequestMapping(value = "/view/redirect", method = RequestMethod.GET)
+    @ResponseStatus(value = HttpStatus.OK)
+    public ModelAndView redirectToView() {
+        // return new ModelAndView(new RedirectView("https://www.baidu.com"));
+        return new ModelAndView(new RedirectView("http://a.app.qq.com/o/simple.jsp?pkgname=com.ucardstore.Activity"));
     }
 }
