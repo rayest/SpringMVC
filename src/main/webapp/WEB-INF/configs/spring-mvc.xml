@@ -14,8 +14,8 @@
     <!-- 激活 @Required 和 @Resource 等标注 -->
     <context:annotation-config/>
 
-    <!-- DispatcherServlet 上下文,只搜索 @Controller 标注的类,不扫描其它类型的 bean -->
-    <context:component-scan base-package="cn.rayest.controller">
+    <!-- DispatcherServlet 上下文,只搜索 @Controller 标注的类,不扫描其它类型的 annotationBean -->
+    <context:component-scan base-package="cn.rayest">
         <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
     </context:component-scan>
 
@@ -37,6 +37,11 @@
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix" value="/WEB-INF/jsps/" />
         <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- 添加对文件上传的支持；需要 commons-fileupload.jar 和 commons-io.jar 的支持 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="1000000"/>
     </bean>
 
 </beans>

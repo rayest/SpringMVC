@@ -26,14 +26,14 @@ public class LogAspect {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();
         Action action = method.getAnnotation(Action.class);
-        System.out.println("×¢½âÊ½À¹½Ø " + action.name());
+        System.out.println("æ³¨è§£å¼æ‹¦æˆª " + action.name());
     }
 
     @Before(value = "execution(* cn.candy.aop.MethodService.*(..))")
     public void before(JoinPoint joinPoint) {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method method = methodSignature.getMethod();
-        System.out.println("·½·¨¹æÔòÊ½À¹½Ø " + method.getName());
+        System.out.println("æ–¹æ³•è§„åˆ™å¼æ‹¦æˆª " + method.getName());
     }
 
 }

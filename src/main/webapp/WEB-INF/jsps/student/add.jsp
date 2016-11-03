@@ -4,7 +4,7 @@
     <title>Title</title>
 </head>
 <body>
-<form action="/student/save" method="post">
+<form action="${pageContext.request.contextPath}/student/save" method="post">
     <table>
         <tr>
             <th colspan="2">添加学生</th>

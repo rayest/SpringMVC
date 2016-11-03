@@ -35,7 +35,7 @@ public class StudentController {
     @RequestMapping("/add")
     public ModelAndView add(@RequestParam(value = "id", required = false) String id) {
         ModelAndView mav = new ModelAndView();
-        if (id == null) {
+        if (id != null) {
             mav.addObject("student", students.get(Integer.parseInt(id) - 1));
             mav.setViewName("student/update");
         } else {
@@ -43,5 +43,23 @@ public class StudentController {
         }
 
         return mav;
+    }
+
+    @RequestMapping("/save")
+    public String save(Student student) {
+        if (student.getId() != 0) {
+            Student s = students.get(student.getId() - 1);
+            s.setName(student.getName());
+            s.setAge(student.getAge());
+        } else {
+            students.add(student);
+        }
+        return "redirect:/student/list";
+    }
+
+    @RequestMapping("/delete")
+    public String delete(@RequestParam("id") int id){
+        students.remove(id - 1);
+        return "redirect:/student/list";
     }
 }

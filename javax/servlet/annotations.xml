@@ -1,0 +1,5 @@
+<root>
+  <item name='javax.servlet.ServletRequest java.lang.String getRealPath(java.lang.String)'>
+    <annotation name='java.lang.annotation.Deprecated'/>
+  </item>
+</root>

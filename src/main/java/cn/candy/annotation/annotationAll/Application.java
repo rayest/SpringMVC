@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Application {
     public static void main(String[] args) {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfiguration.class);
-        UserFunctionService userFunctionService = context.getBean(UserFunctionService.class);
+        UseFunctionService userFunctionService = context.getBean(UseFunctionService.class);
         System.out.println(userFunctionService.sayHello("Candy"));
     }
 }

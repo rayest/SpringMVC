@@ -1,11 +1,9 @@
 package cn.rayest.controller;
 
 import cn.rayest.model.Admin;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by Rayest on 2016/10/2 0002.
@@ -14,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class XmlController {
     @RequestMapping(value = "/xml", method = RequestMethod.POST)
+    @ResponseStatus(HttpStatus.OK)
     @ResponseBody
     public String getXml(@RequestBody Admin admin) {
         return admin.toString();

@@ -14,14 +14,14 @@ import org.springframework.web.bind.annotation.*;
 public class TestController {
 
     // TODO: http://localhost:8080/baseType?age=100
-    // »ù±¾ÀàĞÍµÄÊı¾İ£¬ÆäÖµ²»ÄÜÎª¿Õ: ±ØĞëÓĞ age ²ÎÊıÖµ
+    // åŸºæœ¬ç±»å‹çš„æ•°æ®ï¼Œå…¶å€¼ä¸èƒ½ä¸ºç©º: å¿…é¡»æœ‰ age å‚æ•°å€¼
     @RequestMapping(value = "/baseType/age", method = RequestMethod.GET)
     @ResponseBody
     public String baseType(int age) {
         return "name:" + age;
     }
 
-    // @RequestParam:ÒªÇó¸Ã×¢½âµÄ²ÎÊı±ØĞë´«
+    // @RequestParam:è¦æ±‚è¯¥æ³¨è§£çš„å‚æ•°å¿…é¡»ä¼ 
     @RequestMapping(value = "/baseType/name", method = RequestMethod.GET)
     @ResponseBody
     public String baseType2(@RequestParam(value = "name") String name) {
@@ -29,7 +29,7 @@ public class TestController {
     }
 
     // TODO: http://localhost:8080/boxType/age
-    // springMVC ¶Ô°ü×°ÀàĞÍµÄÊı¾İ´¦Àí, ´«ÈëµÄÊı¾İ¿ÉÒÔÎª¿Õ
+    // springMVC å¯¹åŒ…è£…ç±»å‹çš„æ•°æ®å¤„ç†, ä¼ å…¥çš„æ•°æ®å¯ä»¥ä¸ºç©º
     @RequestMapping(value = "/boxType/age", method = RequestMethod.POST)
     @ResponseBody
     public String boxType(Integer age) {
@@ -38,7 +38,7 @@ public class TestController {
 
 
     // TODO:  http://localhost:8080/array?names=Ray&names=Pay&names=Paris
-    // Êı×éÀàĞÍµÄÊı¾İµÄ°ó¶¨
+    // æ•°ç»„ç±»å‹çš„æ•°æ®çš„ç»‘å®š
     @RequestMapping(value = "/array", method = RequestMethod.GET)
     @ResponseBody
     public String getArray(String[] names) {
@@ -49,7 +49,7 @@ public class TestController {
         return stringBuilder.toString();
     }
 
-    // ¼òµ¥¶ÔÏóµÄÊı¾İ°ó¶¨
+    // ç®€å•å¯¹è±¡çš„æ•°æ®ç»‘å®š
     // TODO:  http://localhost:8080/book?name=sanpao&author=sipao
     @RequestMapping(value = "/book", method = RequestMethod.GET)
     @ResponseBody
@@ -57,7 +57,7 @@ public class TestController {
         return book.toString();
     }
 
-    // ¶à²ã¼¶¶ÔÏóµÄÊı¾İ°ó¶¨
+    // å¤šå±‚çº§å¯¹è±¡çš„æ•°æ®ç»‘å®š
     // TODO  http://localhost:8080/user/address?id=123&userName=lee&password=456&address.country=china&address.city=nanjing&address.code=210094
     @RequestMapping(value = "/user/address", method = RequestMethod.POST)
     @ResponseBody
@@ -65,7 +65,7 @@ public class TestController {
         return user.toString();
     }
 
-    // Í¬ÊôĞÔµÄ¶à¶ÔÏóµÄÊı¾İ°ó¶¨
+    // åŒå±æ€§çš„å¤šå¯¹è±¡çš„æ•°æ®ç»‘å®š
     // TODO: http://localhost:8080/bookAndPic?book.name=sanpao&book.author=lee&picture.name=shanshui&picture.author=ray
     @RequestMapping(value = "/bookAndPic", method = RequestMethod.POST)
     @ResponseBody
@@ -83,5 +83,4 @@ public class TestController {
         binder.setFieldDefaultPrefix("picture.");
     }
 
-    
 }

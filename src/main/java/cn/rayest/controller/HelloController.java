@@ -1,5 +1,6 @@
 package cn.rayest.controller;
 
+import cn.rayest.model.User;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -34,4 +35,11 @@ public class HelloController {
         return jsonObject;
     }
 
+    // @ResponseBody:将对象封装成 json 对象，并返回
+    @RequestMapping("/json2")
+    @ResponseBody
+    public User helloJson2() {
+        User user = new User("Pay", "123456");
+        return user;
+    }
 }
