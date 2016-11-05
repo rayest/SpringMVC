@@ -15,13 +15,13 @@ import org.springframework.web.servlet.view.JstlView;
 
 @Configuration // 表明此类含有一个或多个 @Bean 注解的方法
 @EnableWebMvc  // 等价于 xml中的 mvc:annotation-driven
-@ComponentScan("cn.rayest.controller")
+@ComponentScan
 public class HelloWorldConfiguration {
     @Bean
     public ViewResolver viewResolver(){
         InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/jsps");
+        viewResolver.setPrefix("/WEB-INF/views");
         viewResolver.setSuffix(".jsp");
         return viewResolver;
     }
