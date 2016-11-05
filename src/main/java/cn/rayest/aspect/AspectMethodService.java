@@ -1,4 +1,4 @@
-package cn.rayest.aop;
+package cn.rayest.aspect;
 
 import org.springframework.stereotype.Service;
 
@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
  * Created by Rayest on 2016/8/26 0026.
  */
 @Service
-public class MethodService {
-    public void add(){}
+public class AspectMethodService {
+    public void add(){
+    }
 }
