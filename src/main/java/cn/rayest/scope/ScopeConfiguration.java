@@ -8,5 +8,5 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan("cn.rayest.scope")
-public class ScopeConfig {
+public class ScopeConfiguration {
 }

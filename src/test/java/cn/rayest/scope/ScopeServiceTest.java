@@ -1,5 +1,6 @@
 package cn.rayest.scope;
 
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -15,7 +16,7 @@ public class ScopeServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        context = new AnnotationConfigApplicationContext(ScopeConfig.class);
+        context = new AnnotationConfigApplicationContext(ScopeConfiguration.class);
     }
 
     @Test
@@ -30,5 +31,10 @@ public class ScopeServiceTest {
         PrototypeService prototype1 = context.getBean(PrototypeService.class);
         PrototypeService prototype2 = context.getBean(PrototypeService.class);
         assertNotEquals(prototype1, prototype2);
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        context.close();
     }
 }

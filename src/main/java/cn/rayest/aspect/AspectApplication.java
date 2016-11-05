@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class AspectApplication {
     public static void main(String[] args) {
         // 获取注解配置的上下文
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AspectConfig.class);
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AspectConfiguration.class);
         // 通过 AspectConfig 配置获取 spring 管理的 bean (这里只有 @service 注解的类)
         AspectAnnotationService aspectAnnotationService = context.getBean(AspectAnnotationService.class);
         AspectMethodService aspectMethodService = context.getBean(AspectMethodService.class);

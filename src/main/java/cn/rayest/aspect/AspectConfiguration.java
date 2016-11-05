@@ -10,5 +10,5 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 @Configuration
 @ComponentScan("cn.rayest.aspect")
 @EnableAspectJAutoProxy // 该注解开启 spring 对 AspectJ 的代理的支持
-public class AspectConfig {
+public class AspectConfiguration {
 }
