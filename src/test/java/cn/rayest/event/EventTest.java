@@ -1,4 +1,4 @@
-package cn.rayest.lifeCycle;
+package cn.rayest.event;
 
 import org.junit.After;
 import org.junit.Before;
@@ -8,22 +8,23 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 /**
  * Created by Rayest on 2016/11/6 0006.
  */
-public class ServiceTest {
+public class EventTest {
     private AnnotationConfigApplicationContext context;
 
     @Before
     public void setUp() throws Exception {
-        context = new AnnotationConfigApplicationContext(LifeCycleConfiguration.class);
+         context = new AnnotationConfigApplicationContext(EventConfiguration.class);
     }
 
     @Test
-    public void testService() throws Exception {
-        context.getBean(BeanService.class);
-        context.getBean(JSR250Service.class);
+    public void testEvent() throws Exception {
+        EventPublisher eventPublisher = context.getBean(EventPublisher.class);
+        eventPublisher.publish("撒扬娜拉");
     }
 
     @After
     public void tearDown() throws Exception {
         context.close();
+
     }
 }
