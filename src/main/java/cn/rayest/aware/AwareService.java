@@ -6,6 +6,7 @@ import org.springframework.context.ResourceLoaderAware;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Service;
+
 import java.io.IOException;
 
 /**
@@ -31,7 +32,7 @@ public class AwareService implements BeanNameAware, ResourceLoaderAware {
 
     public void outputResult() {
         System.out.println("Bean 的名称为：" + beanName);
-        Resource resource = loader.getResource("classpath:cn/rayest/aware/aware.txt");
+        Resource resource = loader.getResource("classpath:cn/rayest/aware/aware.txt"); // TODO: 2016/11/6 0006
         try {
             System.out.println("ResourceLoader 加载的文件内容为：" + IOUtils.toString(resource.getInputStream()));
         } catch (IOException e) {
