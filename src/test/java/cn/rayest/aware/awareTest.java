@@ -24,6 +24,6 @@ public class AwareTest {
 
     @After
     public void tearDown() throws Exception {
-        context.register();
+        context.close();
     }
 }
