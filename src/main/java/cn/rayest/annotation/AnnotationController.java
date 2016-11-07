@@ -62,6 +62,4 @@ public class AnnotationController {
         // return new ModelAndView(new RedirectView("https://www.baidu.com"));
         return new ModelAndView(new RedirectView("http://a.app.qq.com/o/simple.jsp?pkgname=com.ucardstore.Activity"));
     }
-
-
 }

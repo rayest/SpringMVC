@@ -1,5 +1,7 @@
-package cn.rayest.conditional;
+package cn.rayest.combination;
 
+import cn.rayest.annotation.combination.LeeConfiguration;
+import cn.rayest.annotation.combination.RayestService;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,19 +12,18 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by Rayest on 2016/11/7 0007.
  */
-public class ConditionalTest {
+public class CombinationTest {
     private AnnotationConfigApplicationContext context;
 
     @Before
     public void setUp() throws Exception {
-        context = new AnnotationConfigApplicationContext(ConditionConfiguration.class);
+        context = new AnnotationConfigApplicationContext(LeeConfiguration.class);
     }
 
     @Test
     public void testConditional() throws Exception {
-        ListService listService = context.getBean(ListService.class);
-        assertEquals("Windows 10", context.getEnvironment().getProperty("os.name"));
-        assertEquals("dir", listService.showListCmd());
+        RayestService rayestService = context.getBean(RayestService.class);
+        assertEquals("从自定义的组合注接中获得的 bean", rayestService.output());
     }
 
     @After
