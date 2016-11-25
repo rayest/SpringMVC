@@ -1,4 +1,4 @@
-package cn.rayest.controller;
+package cn.rayest.rest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;

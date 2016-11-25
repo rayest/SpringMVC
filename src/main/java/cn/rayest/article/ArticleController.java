@@ -14,16 +14,17 @@ import org.springframework.web.servlet.ModelAndView;
 public class ArticleController {
 
     @RequestMapping("/list")
-    public String list(Model model){
+    public String list(Model model) {
         return "article/list";
     }
 
     @RequestMapping("/details/{id}")
-    public ModelAndView details(@PathVariable("id") int id){
+    public ModelAndView details(@PathVariable("id") int id) {
         ModelAndView mav = new ModelAndView();
-        if (id == 1){
+        if (id == 1) {
             mav.addObject("article", new Article("文章一", "文章一的内容"));
-        }else if(id == 2){
+        }
+        if (id == 2) {
             mav.addObject("article", new Article("文章二", "文章二的内容"));
         }
         mav.setViewName("article/details");
